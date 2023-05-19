@@ -1,7 +1,13 @@
 // import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
+import AppButton from "./app/components/AppButton/AppButton";
+import AppText from "./app/components/AppText";
+import Card from "./app/components/Card/Card";
+import ListOwner from "./app/components/ListOwner/ListOwner";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+// import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function App() {
   return (
@@ -57,7 +63,52 @@ export default function App() {
 
     // </SafeAreaView>
     // <WelcomeScreen />
+    // <ViewImageScreen />
+    // <SafeAreaView style={{ flex: 1 }}>
+    // <View
+    //   style={{
+    //     flex: 1,
+    //     backgroundColor: "#f8f4f4",
+    //     padding: 20,
+    //     paddingTop: 80,
+    //   }}
+    // >
+    //   <Card
+    //     title="Red Jacket for sale!"
+    //     subTitle="$100"
+    //     image={require("./app/assets/jacket.jpg")}
+    //   />
+    //   <ListOwner />
+    //   <AppButton title="LOGIN"></AppButton>
+    // </View>
+    // <ListingDetailsScreen />
+    // </SafeAreaView>
+
     <ViewImageScreen />
+    // <SafeAreaView
+    //   style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+    // >
+    //   {/* <View
+    //     style={{
+    //       backgroundColor: "dodgerblue",
+    //       width: 100,
+    //       height: 100,
+    //       borderWidth: 10,
+    //       borderColor: "royalblue",
+    //       borderRadius: 50,
+    //     }}
+    //   /> */}
+    //   {/* <View
+    //     style={{
+    //       backgroundColor: "dodgerblue",
+    //       width: 100,
+    //       height: 100,
+    //     }}
+    //   />
+    //   <AppText>Hey React Native</AppText> */}
+    //   {/* <AppButton color="secondary">LOGIN</AppButton> */}
+    //   {/* <MaterialCommunityIcons name="email" size={100} color="dodgerblue" /> */}
+    // </SafeAreaView>
   );
 }
 
