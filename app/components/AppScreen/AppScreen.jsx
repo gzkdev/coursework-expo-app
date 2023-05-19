@@ -1,8 +1,8 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 
-const AppScreen = ({ children }) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
+const AppScreen = ({ children, style = {} }) => {
+  return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
