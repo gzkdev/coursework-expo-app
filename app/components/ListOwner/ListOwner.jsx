@@ -1,16 +1,24 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, TouchableHighlight } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 import colors from "../../config/colors";
 import AppText from "../AppText";
 
-const ListOwner = ({ title, subTitle, image }) => {
+/** It is recommennded you uuse expo to install react-native-gesture-handler so that expo will make it compatible with the version on expo you're using on your project. This applies to some other react native libraries you may use in the future **/
+
+const ListOwner = ({ title, subTitle, image, onPress, renderRightActions }) => {
   return (
-    <View style={styles.box}>
-      <Image style={styles.image} source={image} />
-      <View style={styles.details}>
-        <AppText title={title} style={styles.name} />
-        <AppText title={subTitle} style={styles.subTitle} />
-      </View>
-    </View>
+    // The TouchableHighlght component won't work without the onPress prop
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+        <View style={styles.box}>
+          <Image style={styles.image} source={image} />
+          <View style={styles.details}>
+            <AppText title={title} style={styles.name} />
+            <AppText title={subTitle} style={styles.subTitle} />
+          </View>
+        </View>
+      </TouchableHighlight>
+    </Swipeable>
   );
 };
 
