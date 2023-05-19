@@ -17,6 +17,7 @@ const ListOwner = ({ title, subTitle, image }) => {
 const styles = StyleSheet.create({
   box: {
     flexDirection: "row",
+    padding: 16,
     gap: 8,
   },
   image: {
