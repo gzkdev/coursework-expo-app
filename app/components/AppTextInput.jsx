@@ -12,7 +12,10 @@ const AppTextInput = ({ icon, ...otherProps }) => {
           color={defaultStyles.colors.medium}
         />
       )}
-      <TextInput style={defaultStyles.text} {...otherProps} />
+      <TextInput
+        style={[defaultStyles.text, styles.inputBox]}
+        {...otherProps}
+      />
     </View>
   );
 };
@@ -27,6 +30,9 @@ const styles = StyleSheet.create({
     padding: 16,
     marginVertical: 16,
     gap: 8,
+  },
+  inputBox: {
+    flex: 1,
   },
 });
 
