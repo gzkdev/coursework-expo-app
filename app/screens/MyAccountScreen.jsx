@@ -1,8 +1,31 @@
-import { View, Image, StyleSheet, TouchableHighlight } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableHighlight,
+  FlatList,
+} from "react-native";
 import AppScreen from "../components/AppScreen/AppScreen";
 import AppText from "../components/AppText";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
+import IconBox from "../components/IconBox";
+
+const actions = [
+  {
+    id: 1,
+    iconName: "format-list-bulleted",
+    iconSize: 40,
+    backgroundColor: colors.primary,
+    title: "My Listings",
+  },
+  {
+    id: 2,
+    iconName: "email",
+    iconSize: 40,
+    backgroundColor: colors.secondary,
+    title: "My Messages",
+  },
+];
 
 const MyAccountScreen = () => {
   return (
@@ -20,42 +43,65 @@ const MyAccountScreen = () => {
           ></AppText>
         </View>
       </View>
-      <View style={styles.actionsContainer}>
-        <TouchableHighlight style={styles.action}>
-          <View style={styles.actionWrapper}>
-            <View style={[styles.actionIcon, styles.utilsPrimary]}>
-              <MaterialCommunityIcons
-                name="format-list-bulleted"
-                color={colors.white}
-                size={20}
+      <FlatList
+        style={styles.actionsContainer}
+        data={actions}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableHighlight
+            style={styles.action}
+            onPress={() => {}}
+            underlayColor={colors.light}
+          >
+            <View style={styles.actionWrapper}>
+              <IconBox
+                name={item.iconName}
+                size={item.iconSize}
+                backgroundColor={item.backgroundColor}
               />
+              <AppText style={styles.actionTitle} title={item.title} />
             </View>
+          </TouchableHighlight>
+        )}
+      />
+      {/* <View style={styles.actionsContainer}>
+        <TouchableHighlight
+          style={styles.action}
+          onPress={() => {}}
+          underlayColor={colors.light}
+        >
+          <View style={styles.actionWrapper}>
+            <IconBox
+              name="format-list-bulleted"
+              size={40}
+              backgroundColor={colors.primary}
+            />
             <AppText style={styles.actionTitle} title="My Listings" />
           </View>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.action}>
+        <TouchableHighlight
+          style={styles.action}
+          onPress={() => {}}
+          underlayColor={colors.light}
+        >
           <View style={styles.actionWrapper}>
-            <View style={[styles.actionIcon, styles.utilsMessages]}>
-              <MaterialCommunityIcons
-                name="email"
-                color={colors.white}
-                size={20}
-              />
-            </View>
+            <IconBox
+              name="email"
+              size={40}
+              backgroundColor={colors.secondary}
+            />
             <AppText style={styles.actionTitle} title="My Messages" />
           </View>
         </TouchableHighlight>
-      </View>
+      </View> */}
       <View style={styles.actionsContainer}>
-        <TouchableHighlight style={styles.action}>
+        <TouchableHighlight
+          style={styles.action}
+          onPress={() => {}}
+          underlayColor={colors.light}
+        >
           <View style={styles.actionWrapper}>
-            <View style={[styles.actionIcon, styles.utilsLogout]}>
-              <MaterialCommunityIcons
-                name="logout"
-                color={colors.white}
-                size={20}
-              />
-            </View>
+            <IconBox name="logout" size={40} backgroundColor={colors.logout} />
             <AppText style={styles.actionTitle} title="Logout" />
           </View>
         </TouchableHighlight>
