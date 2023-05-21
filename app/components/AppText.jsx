@@ -1,8 +1,12 @@
 import { Text } from "react-native";
 import defualtStyles from "../config/styles";
 
-const AppText = ({ title, style }) => {
-  return <Text style={[defualtStyles.text, style]}>{title}</Text>;
+const AppText = ({ title, style, ...props }) => {
+  return (
+    <Text style={[defualtStyles.text, style]} {...props}>
+      {title}
+    </Text>
+  );
 };
 
 // const styles = StyleSheet.create({

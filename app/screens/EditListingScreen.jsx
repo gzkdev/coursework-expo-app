@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import * as Yup from "yup";
 
 import AppScreen from "../components/AppScreen/AppScreen";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 import {
   AppForm,
   AppFormField,
@@ -17,9 +18,18 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
+  { label: "Furniture", value: 1, iconName: "floor-lamp", color: "#fc5c65" },
+  { label: "Cars", value: 2, iconName: "car", color: "#fd9644" },
+  { label: "Cameras", value: 3, iconName: "camera", color: "#fed330" },
+  { label: "Games", value: 4, iconName: "cards", color: "#26de81" },
+  { label: "Clothing", value: 5, iconName: "shoe-heel", color: "#2bcbba" },
+  { label: "Sports", value: 6, iconName: "basketball", color: "#45aaf2" },
+  {
+    label: "Movies & Music",
+    value: 7,
+    iconName: "headphones",
+    color: "#4b7bec",
+  },
 ];
 
 const EditListingScreen = () => {
@@ -46,11 +56,15 @@ const EditListingScreen = () => {
             maxLength={8}
             name="price"
             placeholder="Price"
+            style={{ width: "50%" }}
           />
           <AppFormPicker
             items={categories}
             name="category"
+            numberOfColumns={3}
+            PickerItemComponent={CategoryPickerItem}
             placeholder="Category"
+            style={{ width: "70%" }}
           />
           <AppFormField
             autoCapitalize="none"

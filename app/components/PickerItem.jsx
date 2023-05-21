@@ -1,15 +1,11 @@
 import { TouchableOpacity } from "react-native";
 import AppText from "./AppText";
+// import IconBox from "./IconBox";
 
-const PickerItem = ({ label, onPress }) => {
+const PickerItem = ({ item, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText
-        title={label}
-        style={{
-          padding: 20,
-        }}
-      />
+      <AppText title={item.label} style={{ padding: 10 }} />
     </TouchableOpacity>
   );
 };
