@@ -13,6 +13,7 @@ const AppTextInput = ({ icon, ...otherProps }) => {
         />
       )}
       <TextInput
+        placeholderTextColor={defaultStyles.colors.medium}
         style={[defaultStyles.text, styles.inputBox]}
         {...otherProps}
       />
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     padding: 16,
-    marginVertical: 16,
+    marginBottom: 16,
     gap: 8,
   },
   inputBox: {
